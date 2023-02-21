@@ -1,0 +1,29 @@
+.form1{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background: rgb(29, 29, 25);
+
+}
+
+.contenedorLogin{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.botonN{
+    display: flex;
+    justify-content: center;
+}
+
+.usuario{
+    color: aliceblue;
+   
+    display: flex;
+   justify-content: center;
+}
