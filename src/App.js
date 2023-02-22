@@ -44,7 +44,7 @@ async function downloadApp() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
-          <button onClick={downloadApp} >descargar</button>
+          {isReadyForInstall && <button onClick={downloadApp} >descargar</button>}
         </p>
         <a
           className="App-link"
