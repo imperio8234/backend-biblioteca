@@ -1,14 +1,12 @@
 const express=require("express");
 const app=express();
 const mysql=require("mysql2");
-const mysql23=require("mysql")
 const coneccion=require("express-myconnection");
 const mysession=require("express-mysql-session");
 const session=require("express-session");
 const cors=require("cors");
 const cookiParser=require("cookie-parser");
 const passport=require("passport");
-const passportLocal=require("passport-local").Strategy;
 const flash=require("connect-flash");
 require("./src/loginPassport");
 const path=require("path");
@@ -16,7 +14,8 @@ const { DB_HOST,
     DB_NAME,
     DB_PASSWORD,
     DB_PORT,
-    DB_USER}=require("./config/config")
+    DB_USER,
+    PORT}=require("./config/config")
 
 const corsOptions = {
     origin: 'http://localhost:3000',
@@ -105,9 +104,7 @@ app.use("/login/home/tarea/upload/passport",passLog)
 
 
 
-const PUERTO=process.env.PORT || 4000;
-
-app.listen(PUERTO, ()=>{
-    console.log(`se esta escuchando en el puerto ${PUERTO}`)
+app.listen(PORT, ()=>{
+    console.log(`se esta escuchando en el puerto ${PORT}`)
 })
 
