@@ -1,9 +1,8 @@
-const { DB_HOST,
-  DB_NAME,
-  DB_PASSWORD,
-  DB_PORT,
-  DB_USER,
-  }=require("../../config/config");
+const  DB_HOST= process.env.DB_HOST || "localhost";
+const DB_USER= process.env.DB_USER || "root";
+const DB_PASSWORD= process.env.DB_PASSWORD || "imperio8234";
+const DB_NAME =process.env.DB_NAME || "tareas";
+const DB_PORT =process.env.DB_PORT || "3306";
 
 const mysql=require("mysql2");
 
