@@ -15,7 +15,7 @@ const { DB_HOST,
     DB_PASSWORD,
     DB_PORT,
     DB_USER,
-    PORT}=require("./config/config")
+    PORT}=require("./config/config");
 
 const corsOptions = {
     origin: 'http://localhost:3000',
@@ -104,7 +104,5 @@ app.use("/login/home/tarea/upload/passport",passLog)
 
 
 
-app.listen(PORT, ()=>{
-    console.log(`se esta escuchando en el puerto ${PORT}`)
-})
+app.listen(PORT)
 
