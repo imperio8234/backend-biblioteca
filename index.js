@@ -87,6 +87,10 @@ app.use("/login/home", eliminar);
 const update=require("./src/delete");
 app.use("/login/home", update);
 
+//cambio de contraseña
+const cambio=require("./src/restableserPass");
+app.use("/login/cambio", cambio);
+
 //pasport logi
 
 const passLog=require("./src/loginPassport");

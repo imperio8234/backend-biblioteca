@@ -25,5 +25,11 @@ Content-Type: application/json
 
 
 ###
-DELETE  http://localhost:4000/login/home/eliminar  
+POST    http://localhost:4000/login/cambio  
 content-type: application/json
+
+{
+    "user":"tony",
+    "pass":"imperio82",
+    "newPass":"imperio82"
+}

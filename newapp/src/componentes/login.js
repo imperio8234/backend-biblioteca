@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../css/login.css"
-import { Home, Sala } from "./local";
+import { Sala } from "./local";
 import userContext from "../context/userContext";
 import  sweet from "sweetalert2"
+
 
 
 
@@ -12,12 +13,7 @@ export const Login=()=>{
   const [user, setUser]=useState("")
   const [pass, setPass]=useState("")
   const [autentif, setAutentif]=useState(false);
-  const [usuario, setUsuario]=useState("")
-  const [aler, setAler]=useState(null);
- 
-  const navigate=useNavigate();
-
-
+  const [usuario, setUsuario]=useState("");
 
   
 
@@ -73,7 +69,7 @@ export const Login=()=>{
    const usuario=e.target.elements[1].value;
    const password=e.target.elements[2].value;
     e.preventDefault()
-    if (usuario=="") {
+    if (usuario==="") {
        alert("introduce algo valido")
     }else{
       enviarapi()
@@ -120,6 +116,11 @@ const userData={
 
 };
 
+const restablecerContraseña=()=>{
+  console.log("su contraseña se restablecio")
+
+};
+
 
   
   return (
@@ -135,9 +136,10 @@ const userData={
             <input onChange={inpass} className="form-control" type={"password"} name="pass"></input>
             <input type={"submit"} value="ingresar" className="btn btn-dark sub" />
             <button className="btn btn-dark sub"><Link className="link" to={"/"}>registrarme</Link></button>
-           
+             
           </fieldset>
         </form>
+        <button onClick={restablecerContraseña} className="btn btn-dark sub olvi">olvidaste tu contraseña ?</button>
       
       
       </div>

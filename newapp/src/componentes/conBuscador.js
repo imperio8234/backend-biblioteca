@@ -8,7 +8,7 @@ import "../css/buscador.css"
 export const Buscador=({ inputText })=>{
     const [obj, setObj]=useState([]);
     const [obBuscados, setObBuscados]=useState([]);
-    const [letraBusqueda,]=useState();
+   
     
 
 
