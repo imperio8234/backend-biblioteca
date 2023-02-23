@@ -12,6 +12,11 @@ const passportLocal=require("passport-local").Strategy;
 const flash=require("connect-flash");
 require("./src/loginPassport");
 const path=require("path");
+const { DB_HOST,
+    DB_NAME,
+    DB_PASSWORD,
+    DB_PORT,
+    DB_USER}=require("./config/config")
 
 const corsOptions = {
     origin: 'http://localhost:3000',
@@ -20,11 +25,11 @@ const corsOptions = {
   };
 //coneccion con la base de datos
 const options={
-    host:"localhost",
-    user:"root",
-    password:"imperio8234",
-    port:3306,
-    database:"tareas"
+    host:DB_HOST,
+    user:DB_USER,
+    password:DB_PASSWORD,
+    port:DB_PORT,
+    database:DB_NAME
 };
 
 app.use(coneccion(mysql ,options, "single"));
