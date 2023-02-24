@@ -45,7 +45,8 @@ home.get("/",async (req, res)=>{
             }else{
                 if (results.length== 0) {
                     res.status(404).json({
-                        message:"no hay ningun archivo"
+                        message:"no hay ningun archivo",
+                        user:usuario
                     });
                     
                 }else{
