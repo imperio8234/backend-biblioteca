@@ -22,7 +22,7 @@ const PORT= process.env.PORT || 4000
 // fin de variables para entorno
 
 const corsOptions = {
-    origin: ['http://localhost:3000', "http://192.168.134.139:3000"],
+    origin: ['http://localhost:3000', "http://192.168.134.139:3000","http://192.168.134.139:3000/login/contenido"],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
   };
