@@ -15,14 +15,14 @@ const  DB_HOST= process.env.DB_HOST || "localhost";
 const DB_USER= process.env.DB_USER || "root";
 const DB_PASSWORD= process.env.DB_PASSWORD || "imperio8234";
 const DB_NAME =process.env.DB_NAME || "tareas";
-const DB_PORT =process.env.DB_PORT || "3306";
+const DB_PORT =process.env.DB_PORT || 3306;
 
 const PORT= process.env.PORT || 4000
 
 // fin de variables para entorno
 
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: ['http://localhost:3000', "http://192.168.134.139:3000"],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
   };
