@@ -35,7 +35,7 @@ home.get("/",async (req, res)=>{
            
            })
     }else{
-        coneccion.query("SELECT * FROM tarea WHERE id_user= ?",[req.session.pass], async (err, results)=>{
+        coneccion.query("SELECT * FROM tarea", async (err, results)=>{
             if (err) {
                 res.status(401).json({
                     success:false,
