@@ -10,6 +10,8 @@ const verificar = require("./controllers/token");
 
 
 
+
+
 const storage=multer.diskStorage({
     destination:'upload/',
     filename:(req, file, cb)=>{
@@ -22,8 +24,6 @@ const uploads=multer({
     storage:storage
 })
 
-
-
 upload.post("/",verificar, uploads.fields([{name:"file"}, {name:"des"}]), (req, res)=>{
     
     const { originalname, mimetype, filename }=req.files["file"][0];
@@ -35,7 +35,7 @@ upload.post("/",verificar, uploads.fields([{name:"file"}, {name:"des"}]), (req, 
         if (err) {
             res.send("no hay conexion")
         }else{
-            coneccion.query("INSERT INTO tarea SET ?",[{descrip:descripc,tipo:mimetype, nombre:originalname, url:bynaryD, id_user:id_user}], (err, row)=>{
+            coneccion.query("INSERT INTO tarea SET ?",[{descrip:descripc,tipo:mimetype, nombre:originalname, id_user:id_user}], (err, row)=>{
                 if(err){
                     res.send("no se pudo guardar")
                 }else{

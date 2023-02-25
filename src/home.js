@@ -80,7 +80,7 @@ home.get("/", verificar,async (req, res)=>{
                                 descripcion: e.descrip,
                                 tipo:e.tipo,
                                 url: path.join(__dirname,"../imagenes/" + e.id + e.nombre),
-                                usuario:usuario
+                                usuario:nombreDe
                             };
                         }),
                         urlImage: docImagenes,
