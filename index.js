@@ -28,13 +28,13 @@ const PORT= process.env.PORT || 4000
     next();
   });// configuracion cors
 
-//const corsOptions = {
-   // origin: ['http://localhost:3000', "https://elegant-mochi-c69a2d.netlify.app", "https://63f9b75b771c47646038e9b8--elegant-mochi-c69a2d.netlify.app","https://63f9b75b771c47646038e9b8--elegant-mochi-c69a2d.netlify.app/login/contenido"],
-    //allowedHeaders: ['Content-Type', 'Authorization'],
-    //credentials: true,
-    //exposedHeaders: ['Access-Control-Allow-Origin']
+const corsOptions = {
+    origin: ['http://localhost:3000', "https://elegant-mochi-c69a2d.netlify.app", "https://63f9b75b771c47646038e9b8--elegant-mochi-c69a2d.netlify.app","https://63f9b75b771c47646038e9b8--elegant-mochi-c69a2d.netlify.app/login/contenido"],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+    exposedHeaders: ['Access-Control-Allow-Origin']
    
-  //};
+  };
 
 //coneccion con la base de datos
 const options={
@@ -51,7 +51,7 @@ app.use(coneccion(mysql ,options, "single"));
 //midelwere
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.static(path.join(__dirname,"imagenes")))
 
 
