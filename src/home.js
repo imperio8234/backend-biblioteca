@@ -4,7 +4,7 @@ const fs=require("fs");
 const path = require("path");
 const coneccion=require("./controllers/conexion");
 const verificar = require("./controllers/token");
-const cors=require("cors");
+
 /*
 home.post("/", (req,res)=>{
     coneccion.query("DELETE FROM usuarios", (err,rows)=>{
@@ -18,7 +18,6 @@ home.post("/", (req,res)=>{
 })*/
 
 
-home.use(cors())
 
 
 
