@@ -19,7 +19,14 @@ const DB_PORT =process.env.DB_PORT || 3306;
 
 const PORT= process.env.PORT || 4000
 
-// configuracion cors
+
+  // configuracion cors 
+  app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", 'http://localhost:3000', "https://elegant-mochi-c69a2d.netlify.app", "https://63f9b75b771c47646038e9b8--elegant-mochi-c69a2d.netlify.app","https://63f9b75b771c47646038e9b8--elegant-mochi-c69a2d.netlify.app/login/contenido");
+    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });// configuracion cors
 
 const corsOptions = {
     origin: ['http://localhost:3000', "https://elegant-mochi-c69a2d.netlify.app", "https://63f9b75b771c47646038e9b8--elegant-mochi-c69a2d.netlify.app","https://63f9b75b771c47646038e9b8--elegant-mochi-c69a2d.netlify.app/login/contenido"],
@@ -28,13 +35,6 @@ const corsOptions = {
     //exposedHeaders: ['Access-Control-Allow-Origin']
    
   };
-  // configuracion cors 
-  app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", ['http://localhost:3000', "https://elegant-mochi-c69a2d.netlify.app", "https://63f9b75b771c47646038e9b8--elegant-mochi-c69a2d.netlify.app","https://63f9b75b771c47646038e9b8--elegant-mochi-c69a2d.netlify.app/login/contenido"]);
-    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
 
 //coneccion con la base de datos
 const options={
