@@ -29,7 +29,7 @@ const PORT= process.env.PORT || 4000
   });// configuracion cors
 
 const corsOptions = {
-    origin: ['http://localhost:3000', "https://elegant-mochi-c69a2d.netlify.app", "https://63f9b75b771c47646038e9b8--elegant-mochi-c69a2d.netlify.app","https://63f9b75b771c47646038e9b8--elegant-mochi-c69a2d.netlify.app/login/contenido"],
+    origin: ['http://localhost:3000', "https://repobiblioteca-production.up.railway.app/", "https://63f9b75b771c47646038e9b8--elegant-mochi-c69a2d.netlify.app","https://63f9b75b771c47646038e9b8--elegant-mochi-c69a2d.netlify.app/login/contenido"],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
     exposedHeaders: ['Access-Control-Allow-Origin']
