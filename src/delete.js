@@ -7,6 +7,7 @@ const { parse } = require("path");
 
 
 
+
 eliminar.delete("/eliminar/:id/:name", (req, res)=>{
     const obdelete=req.params.name;
     console.log( obdelete)

@@ -22,10 +22,11 @@ const PORT= process.env.PORT || 4000
 // fin de variables para entorno
 
 const corsOptions = {
-    origin: ['http://localhost:3000', "https://elegant-mochi-c69a2d.netlify.app"],
+    origin: ['http://localhost:3000'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
-    exposedHeaders: ['Access-Control-Allow-Origin']
+    //exposedHeaders: ['Access-Control-Allow-Origin']
+   
   };
 //coneccion con la base de datos
 const options={
@@ -53,7 +54,7 @@ app.use(express.static(path.join(__dirname,"imagenes")))
 
 // coneccion secciones 
 
-let sessionstorage= new mysession(options);
+
 
 app.set("trust proxi", 1)
 app.use(session({
@@ -65,8 +66,7 @@ app.use(session({
     
     
 }));
-app.use(passport.initialize())
-app.use(passport.session());
+
 app.use(flash());
 //conexion con passport 
 app.use(cookiParser("ESTE_ES_UN_SECRETO"));

@@ -4,6 +4,7 @@ const upload=express.Router();
 const multer=require("multer");
 const  mimetypes=require("mime-types");
 const pat = require("path");
+const verificar = require("./controllers/token");
 
 
 
@@ -23,12 +24,13 @@ const uploads=multer({
 
 
 
-upload.post("/", uploads.fields([{name:"file"}, {name:"des"}]), (req, res)=>{
+upload.post("/",verificar, uploads.fields([{name:"file"}, {name:"des"}]), (req, res)=>{
     
     const { originalname, mimetype, filename }=req.files["file"][0];
     const descripc=req.body["des"];
     const bynaryD=fs.readFileSync(pat.join(__dirname, "../upload/" + filename))
-    const id_user=req.session.pass
+
+    const id_user=req.usuario.id;
     req.getConnection((err, coneccion)=>{
         if (err) {
             res.send("no hay conexion")

@@ -2,7 +2,8 @@ const express=require("express");
 const home=express.Router();
 const fs=require("fs");
 const path = require("path");
-const coneccion=require("./controllers/conexion")
+const coneccion=require("./controllers/conexion");
+const verificar = require("./controllers/token");
 /*
 home.post("/", (req,res)=>{
     coneccion.query("DELETE FROM usuarios", (err,rows)=>{
@@ -19,11 +20,13 @@ home.post("/", (req,res)=>{
 
 
 
-home.get("/",async (req, res)=>{
- const usuario= await req.session.usuario;
+home.get("/", verificar,async (req, res)=>{
+ const usuario= await req.session.user;
+ const nombreDe=req.usuario.id;
+ 
 
 
- console.log(usuario)
+
 
 
 
@@ -35,7 +38,7 @@ home.get("/",async (req, res)=>{
            
            })
     }else{
-        coneccion.query("SELECT * FROM tarea", async (err, results)=>{
+        coneccion.query("SELECT * FROM tarea WHERE id_user= ?",[nombreDe], async (err, results)=>{
             if (err) {
                 res.status(401).json({
                     success:false,

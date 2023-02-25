@@ -26,16 +26,20 @@ login.post("/", async (req, res)=>{
                     const password= await result[0].pass;
                   const comparacion= await bcrypt.compare(pass, password )
                   if (comparacion) {
+                   // se agrega el token co jwt
                     const userToken={
                       usuario:user,
                       id:result[0].id
                     }
-                    const token_jwt=jwt.sign(userToken, "biblioteca", {expiresIn: "24m"});
+                    const token_jwt=jwt.sign(userToken, "ESTE_ES_UN_SECRETO", {expiresIn: "24h"});
                    res.status(200).json({
                     success:true,
                     message:"ingreso correctamente",
                     user:token_jwt,
+                    usuario:user
                    });
+                   //  se origina el token en una cookie
+                   //res.cookie("token",token_jwt, {httpOnly:true, expires: new Date(Date.now() +60 * 60 *1000)});
                 
                   }else{
                     res.status(401).json({

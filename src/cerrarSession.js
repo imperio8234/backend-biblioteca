@@ -1,4 +1,5 @@
 const express=require("express");
+const verificar = require("./controllers/token");
 const cerrar=express.Router();
 
 
@@ -10,7 +11,7 @@ cerrar.post("/", (req,res)=>{
         cerrar:true,
     });
 
-    console.log(req.session)
+   
     
 
     
