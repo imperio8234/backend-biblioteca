@@ -21,6 +21,7 @@ home.post("/", (req,res)=>{
 home.use(cors())
 
 
+
 home.get("/", verificar,async (req, res)=>{
  const usuario= await req.session.user;
  const nombreDe=req.usuario.id;
