@@ -60,7 +60,7 @@ app.use(express.static(path.join(__dirname,"imagenes")))
 //midelwhere para guardar imagenes o videos 
 
 const addCorsHeaders = (req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Origin', 'https://63f9b75b771c47646038e9b8--elegant-mochi-c69a2d.netlify.app');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.setHeader('Access-Control-Allow-Credentials', true);
