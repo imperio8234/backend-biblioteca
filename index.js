@@ -21,18 +21,18 @@ const PORT= process.env.PORT || 4000
 
 
   // configuracion cors 
-  app.use(function(req, res, next) {
+ /* app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "https://63f9b75b771c47646038e9b8--elegant-mochi-c69a2d.netlify.app")
     res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
-  });// configuracion cors
+  });// configuracion cors*/
 
 const corsOptions = {
     origin: ['http://localhost:3000', "https://repobiblioteca-production.up.railway.app/", "https://63f9b75b771c47646038e9b8--elegant-mochi-c69a2d.netlify.app","https://63f9b75b771c47646038e9b8--elegant-mochi-c69a2d.netlify.app/login"],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
-    exposedHeaders: ['Access-Control-Allow-Origin']
+   // exposedHeaders: ['Access-Control-Allow-Origin']
    
   };
 
@@ -59,10 +59,15 @@ app.use(express.static(path.join(__dirname,"imagenes")))
 
 //midelwhere para guardar imagenes o videos 
 
+const addCorsHeaders = (req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+  };
 
-// coneccion secciones 
-
-
+app.use(addCorsHeaders)
 
 app.set("trust proxi", 1)
 app.use(session({
