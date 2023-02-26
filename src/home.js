@@ -64,7 +64,9 @@ home.get("/", verificar,async (req, res)=>{
                         tipo:e.tipo,
                         url: imagenUrl
                     };
-                    fs.writeFileSync(imagenUrl, e.url);
+                    if(e.url){
+                        fs.writeFileSync(imagenUrl, e.url);
+                    }
                     return tareaConImagen;
                 });
 
