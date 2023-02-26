@@ -7,7 +7,6 @@
     "dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
-    
   },
   "keywords": [],
   "author": "",
@@ -24,6 +23,7 @@
     "express-myconnection": "^1.0.4",
     "express-mysql-session": "^2.1.8",
     "express-session": "^1.17.3",
+    "force-https": "^1.0.2",
     "fs": "^0.0.1-security",
     "heroku": "^7.68.2",
     "jsonwebtoken": "^9.0.0",
