@@ -11,7 +11,7 @@ const flash=require("connect-flash");
 require("./src/loginPassport");
 const path=require("path");
 
-const https=require("force-https");
+
 // variables de entorno para desplegar 
 const  DB_HOST= process.env.DB_HOST || "localhost";
 const DB_USER= process.env.DB_USER || "root";
@@ -45,7 +45,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cors(corsOptions));
 app.use(express.static(path.join(__dirname,"imagenes")));
-app.use(https)
+
 
 
 
