@@ -10,7 +10,22 @@ const passport=require("passport");
 const flash=require("connect-flash");
 require("./src/loginPassport");
 const path=require("path");
+//const { Server }=require("socket.io")
 
+// socket chats
+/*const http=require("http");
+const serve=http.createServer(app);
+const io=new Server(serve);
+
+io.on("connection", (socket)=>{
+    console.log(socket.id)
+    socket.on("mensage", (mensage)=>{
+        console.log(mensage)
+    })
+});*/
+
+
+  
 
 // variables de entorno para desplegar 
 const  DB_HOST= process.env.DB_HOST || "localhost";
@@ -45,6 +60,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cors(corsOptions));
 app.use(express.static(path.join(__dirname,"imagenes")));
+app.use(express.static(path.join(__dirname,"getfotoperfil")));
 
 
 
@@ -92,6 +108,12 @@ app.use("/login/home/tarea/upload", upload)
 const cerrar=require("./src/cerrarSession");
 app.use("/cerrar", cerrar)
 
+const buscar=require("./src/buscador");
+app.use("/buscar", buscar)
+
+const foto=require("./src/fotoPerfil");
+app.use("/foto", foto)
+
 //delete
 const eliminar=require("./src/delete");
 app.use("/login/home", eliminar);
@@ -114,7 +136,22 @@ app.get("/api", (req, res)=>{
 
 })
 
+// chat socket
+const server = app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
+});
+
+const io = require("socket.io")(server, {
+    cors: corsOptions
+});
+
+require("./src/chat")(io)
 
 
-app.listen(PORT)
+
+
+
+
+
+//app.listen(PORT)
 

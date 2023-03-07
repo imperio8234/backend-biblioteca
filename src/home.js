@@ -7,7 +7,7 @@ const verificar = require("./controllers/token");
 
 /*
 home.post("/", (req,res)=>{
-    coneccion.query("DELETE FROM usuarios", (err,rows)=>{
+    coneccion.query("DELETE FROM perfiles", (err,rows)=>{
         if(err){
             console.log("no se pudo borrar")
         }else{
