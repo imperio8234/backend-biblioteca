@@ -7,7 +7,9 @@ registro.post("/", async(req, res)=>{
 
     const user=req.body.usuario;
     let password=req.body.pass
+    const email=req.body.email;
     let pass= await bcryptjs.hash(password, 8);
+    
 
 // se establece la coneccion con la base de datos
    req.getConnection((err, conn)=>{
@@ -15,11 +17,12 @@ registro.post("/", async(req, res)=>{
        console.log("error al conectar")
     }else{
         // se comprueba si el usuario existe 
-        conn.query("SELECT * FROM usuarios WHERE usuario =?", [user], (err, result)=>{
+        conn.query("SELECT * FROM usuarios WHERE email=? OR usuario =?", [email, user], (err, result)=>{
             if(err){
                 res.send("error en la consulta");
             }else{
                 // si los resultados de la comprobacion son mayores a cero conincidencias no se registra de lo contrario si
+                
                 if(result.length > 0){
                     res.status(401).json({
                         success:false,
@@ -29,7 +32,7 @@ registro.post("/", async(req, res)=>{
 
                 }else{
                     // si el usuario no existe se procede a registrarse
-                    conn.query("INSERT INTO usuarios SET ?", [{usuario:user, pass:pass}],(err, rows)=>{
+                    conn.query("INSERT INTO usuarios SET ?", [{usuario:user, pass:pass, email:email}],(err, rows)=>{
                         if(err){
                             console.log("error no se guardo")
                         }else{
@@ -48,7 +51,7 @@ registro.post("/", async(req, res)=>{
     }
     
    })
-})
+});
 
 
 

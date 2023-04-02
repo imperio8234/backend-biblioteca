@@ -10,22 +10,7 @@ const passport=require("passport");
 const flash=require("connect-flash");
 require("./src/loginPassport");
 const path=require("path");
-//const { Server }=require("socket.io")
 
-// socket chats
-/*const http=require("http");
-const serve=http.createServer(app);
-const io=new Server(serve);
-
-io.on("connection", (socket)=>{
-    console.log(socket.id)
-    socket.on("mensage", (mensage)=>{
-        console.log(mensage)
-    })
-});*/
-
-
-  
 
 // variables de entorno para desplegar 
 const  DB_HOST= process.env.DB_HOST || "localhost";
@@ -70,7 +55,6 @@ app.use(express.static(path.join(__dirname,"getfotoperfil")));
 
 
 // coneccion secciones 
-
 let sessionstorage= new mysession(options);
 
 app.set("trust proxi", 1)
@@ -86,9 +70,9 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session());
 app.use(flash());
+
 //conexion con passport 
 app.use(cookiParser("ESTE_ES_UN_SECRETO"));
-
 
 
 
@@ -114,17 +98,20 @@ app.use("/buscar", buscar)
 const foto=require("./src/fotoPerfil");
 app.use("/foto", foto)
 
-//delete
+//delete ruta 
 const eliminar=require("./src/delete");
 app.use("/login/home", eliminar);
 const update=require("./src/delete");
 app.use("/login/home", update);
 
-//cambio de contraseña
+//cambio de contraseña rout 
 const cambio=require("./src/restableserPass");
 app.use("/login/cambio", cambio);
 
-//pasport logi
+const recoverPass=require("./src/envioEmailpass")
+app.use("/login/newpass", recoverPass)
+
+//pasport logi rout 
 
 const passLog=require("./src/loginPassport");
 app.use("/login/home/tarea/upload/passport",passLog)
@@ -135,6 +122,8 @@ app.get("/api", (req, res)=>{
     res.json("hola esta es tu app")
 
 })
+
+
 
 // chat socket
 const server = app.listen(PORT, () => {
@@ -148,10 +137,4 @@ const io = require("socket.io")(server, {
 require("./src/chat")(io)
 
 
-
-
-
-
-
-//app.listen(PORT)
 

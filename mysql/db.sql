@@ -14,5 +14,14 @@ CREATE TABLE tarea (
     id_user varchar(45) NOT NULL
 )
 
+CREATE TABLE perfiles (
+   id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre varchar(500),
+    tipo varchar(500),
+    foto LONGBLOB, 
+    id_user varchar(400),
+     
+)
+
 
 

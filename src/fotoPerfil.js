@@ -57,17 +57,11 @@ foto.put("/", verificar, uploads.single("foto"), (req, res)=>{
                         console.log("nose pudo actualizar")
                         
                     }else{
-                       
-                        fs.unlink(path.join(__dirname, "../imgPerfil/" + filename), (err)=>{
-                            if (!err) {
-                            }
-                            res.json({
-                                success:true,
-                                mensaje:"se actualizo correctamente"
-                            });
-        
-        
-                         });
+                        res.json({
+                            success:true,
+                            mensaje:"se actualizo correctamente"
+                        });
+                        
                     }
                 })
             }
