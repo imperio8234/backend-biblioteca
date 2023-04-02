@@ -11,7 +11,7 @@ const REFRESH_TOKEN = "1//04RXyMPT0b1nQCgYIARAAGAQSNwF-L9IrKMxk-qeU4X8YOqBJiGAT3
 
 // Envío de formulario
 const formu = `
-<a style="color: blue; font-size: 18px;" href="http://localhost:3000" > recupera tu contraseña da clic</a>
+<a style="color: blue; font-size: 18px;" href="http://localhost:3000/recoverePasword" > recupera tu contraseña da clic</a>
 
 `;
 
