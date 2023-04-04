@@ -26,7 +26,7 @@ io.on("connection", (socket)=>{
 
 //manejo de cors 
 app.use((req, res, next)=>{
-    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Origin", "https://biblioteca-v2-2023.netlify.app");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 })
@@ -45,7 +45,7 @@ const PORT= process.env.PORT || 4000
 // fin de variables para entorno
 
 const corsOptions = {
-    origin: ['http://localhost:3000',"https://elegant-mochi-c69a2d.netlify.app", "https://deft-gelato-354233.netlify.app"],
+    origin: ['http://localhost:3000',"https://biblioteca-v2-2023.netlify.app", "https://deft-gelato-354233.netlify.app"],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
   };
