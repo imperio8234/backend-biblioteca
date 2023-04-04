@@ -49,6 +49,7 @@ const corsOptions = {
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
   };
+  app.use(cors(corsOptions));
 //coneccion con la base de datos
 const options={
     host:DB_HOST,
@@ -64,7 +65,7 @@ app.use(coneccion(mysql ,options, "single"));
 //midelwere
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use(cors(corsOptions));
+
 app.use(express.static(path.join(__dirname,"imagenes")));
 app.use(express.static(path.join(__dirname,"getfotoperfil")));
 
