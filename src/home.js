@@ -4,6 +4,7 @@ const fs=require("fs");
 const path = require("path");
 const coneccion=require("./controllers/conexion");
 const verificar = require("./controllers/token");
+const cors =require("cors");
 
 /*
 home.post("/", (req,res)=>{
@@ -17,9 +18,13 @@ home.post("/", (req,res)=>{
 
 })*/
 
+const corsOptions = {
+    origin: ['http://localhost:3000',"https://biblioteca-v2-2023.netlify.app", "http://localhost:4000/login/home"],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+  };
 
-
-
+home.use(cors(corsOptions));
 
 home.get("/", verificar,async (req, res)=>{
  const usuario= await req.session.user;
