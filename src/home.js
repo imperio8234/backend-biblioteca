@@ -19,7 +19,7 @@ home.post("/", (req,res)=>{
 })*/
 
 const corsOptions = {
-    origin: ['http://localhost:3000',"https://biblioteca-v2-2023.netlify.app", "http://localhost:4000/login/home"],
+    origin: ['http://localhost:3000',"https://biblioteca-v2-2023.netlify.app", "https://biblioteca-v2-2023.netlify.app/login/contenido"],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
   };
