@@ -18,13 +18,7 @@ home.post("/", (req,res)=>{
 
 })*/
 
-const corsOptions = {
-    origin: ['http://localhost:3000',"https://biblioteca-v2-2023.netlify.app", "https://biblioteca-v2-2023.netlify.app/login/contenido"],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-  };
 
-home.use(cors(corsOptions));
 
 home.get("/", verificar,async (req, res)=>{
  const usuario= await req.session.user;

@@ -23,14 +23,6 @@ io.on("connection", (socket)=>{
         console.log(mensage)
     })
 });*/
-
-//manejo de cors 
-app.use((req, res, next)=>{
-    res.header("Access-Control-Allow-Origin", "https://biblioteca-v2-2023.netlify.app");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-})
-
   
 
 // variables de entorno para desplegar 
@@ -48,6 +40,7 @@ const corsOptions = {
     origin: ['http://localhost:3000',"https://biblioteca-v2-2023.netlify.app", "https://deft-gelato-354233.netlify.app"],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
+    
   };
   app.use(cors(corsOptions));
 //coneccion con la base de datos
@@ -134,6 +127,7 @@ app.use("/login/cambio", cambio);
 //pasport logi
 
 const passLog=require("./src/loginPassport");
+const { METHODS } = require("http");
 app.use("/login/home/tarea/upload/passport",passLog)
 
 // exportaciones
@@ -149,7 +143,7 @@ const server = app.listen(PORT, () => {
 });
 
 const io = require("socket.io")(server, {
-    cors: corsOptions
+    cors: corsOptions,
 });
 
 require("./src/chat")(io)
